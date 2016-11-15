@@ -24,4 +24,6 @@ body {
   width: 100px;
   height: 100px;
   background: red;
+  background: green;
+  margin: 10px;
 }
