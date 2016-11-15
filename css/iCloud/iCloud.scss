@@ -1,23 +1,9 @@
 /*样式*/
-* {
-    margin: 0;
-    padding: 0; //  position:relative;
-    list-style: none;
-    box-sizing: border-box;
-}
+@import "main";
 @mixin float {
     content: "";
     display: block;
     clear: both;
-}
-a {
-    text-decoration: none;
-}
-body {
-    background: #fff;
-    color: #383838;
-    font-family: "微软雅黑";
-    font-size: 16px;
 }
 @mixin whb($width, $height, $background) {
     width: $width;
@@ -32,9 +18,7 @@ body {
     bottom: 0;
     margin: auto;
 }
-#wzq {
-    @include center;
-    @include whb(100%,636px,url("../images/bg_01.png"));
-    background-size: 1356px 636px;
-    background-repeat: no-repeat;
+/*页头*/
+#iCloud{
+    @include whb(100px,100px,red);
 }
