@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="iCloud">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -7,8 +7,51 @@
 		<link rel="stylesheet" href="./css/iCloud.css" />
 	</head>
 
-	<body>
-		<div id="iCloud"></div>
+	<body ng-controller="mainiCloud">
+		<!--left-main-view-->
+		<div id="iCloud" class="ic-view left-main-view">
+			<!--left-top-view-->
+			<div class="ic-view left-top-view">
+				<ul>
+					<li class="logo"></li>
+					<li class="sx-view">
+						<div class="info">提醒事项</div>
+						<div class="info-img"></div>
+						<div class="info-inner">
+							<ul></ul>
+						</div>
+					</li>
+					<li class="add"></li>
+				</ul>
+			</div>
+			<!--left-bottom-view-->
+			<div class="ic-view left-bottom-view">
+				<div class="collection-top">
+					<ul class="ic-outline">
+						<li class="ic-nz"></li>
+						<li class="ic-info">已计划</li>
+					</ul>
+					<div class="row-top"></div>
+					<div class="row-bottom"></div>
+				</div>
+				<ul class="collection-bottom">
+					<li class="sc-outline">
+						<ul class="collection-color-icon">
+							<li class="icon"></li>
+							<li class="title">新列表</li>
+							<li class="share"></li>
+						</ul>
+						<div class="row-bottom"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--left-main-view End-->
+		<!--right-main-view-->
+		<div id="iClouds" class="right-amin-view">
+
+		</div>
+		<!--right-main-view End-->
 	</body>
 
 </html>

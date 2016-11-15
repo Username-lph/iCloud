@@ -18,6 +18,233 @@
     bottom: 0;
     margin: auto;
 }
-#iCloud{
-    @include whb(100px,100px,red);
+@mixin left-top($left, $top, $bottom) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    bottom: $bottom;
 }
+@mixin left-right($left, $right, $top) {
+    position: absolute;
+    left: $left;
+    right: $right;
+    top: $top;
+}
+@mixin bg-img($image, $repeat, $position) {
+    background-image: $image;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+@mixin bg-position($w, $h, $top) {
+    position: absolute;
+    width: $w;
+    height: $h;
+    top: $top;
+}
+@mixin position($left, $top, $right, $bottom) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+}
+/*页头*/
+#iCloud {
+    @include whb(280px,638px,#383836);
+    @include left-top(0px,0px,0px);
+    position: relative;
+}
+.ic-view {
+    margin: 0;
+    border: 0 solid transparent;
+}
+/*left-top-view*/
+.left-top-view {
+    @include whb(100%,44px,transparent);
+    @include left-right(0px,0px,0px);
+    border-bottom: 1px solid #1a1a1a;
+    ul {
+        @include whb(179px,100%,transparent);
+        &:after {
+            @include clearfix;
+        }
+    }
+    li {
+        float: left;
+        cursor: pointer;
+    }
+    li:nth-child(1) {
+        @include bg-position(56px,16px,13px);
+        left: 11px;
+        bottom: 18px;
+    }
+    li:nth-child(2) {
+        @include bg-position(167px,31px,4px);
+        left: 63px;
+    }
+    .logo {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,0 -588px);
+        color: #fff;
+    }
+    .sx-view {
+        .info {
+            font-size: 21px;
+            line-height: 31px;
+            padding-left: 10px;
+            color: #9C9C9B;
+        }
+        .info-img {
+            right: 54px;
+            @include bg-position(11px,7px,46%);
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-155px -647px);
+        }
+    }
+    li:nth-child(3) {
+        @include bg-position(23px,23px,25%);
+        right: 9px;
+    }
+    .add {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-46px -526px);
+    }
+}
+/*info-inner*/
+.sx-view .info-inner {
+    @include whb(852px,334px,#fff);
+    position: absolute;
+    top: 16px;
+    left: -51px;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    display: none;
+    ul {
+        @include whb(832px,314px,#fff);
+        border: 1px solid #383838;
+        border-radius: 10px;
+        padding: 10px;
+        @include center;
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}
+/*left-top-view End*/
+/*left-bottom-view*/
+.collection-top {
+    overflow: hidden;
+    @include position(0px,0px,0px,0px);
+    margin: 0;
+    border: 0 solid transparent;
+    height: 594px;
+}
+.left-bottom-view {
+    @include bg-position(100%,auto,44px);
+    position: relative;
+    .ic-outline {
+        height: 45px;
+        @include left-top(4px,0px,0px); //      background: red;
+        right: 0;
+        cursor: pointer;
+        &:after {
+            @include clearfix;
+        }
+        li {
+            float: left;
+        }
+        .ic-nz {
+            @include bg-position(42px,42px,0px);
+            left: 0;
+            @include bg-img(url("../images/packed-5.png"),no-repeat,0px -359px);
+        }
+        .ic-info {
+            @include whb(192px,24px,transparent);
+            color: #fff;
+            line-height: 40px;
+            position: absolute;
+            left: 41px;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+    }
+    .row-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2px;
+        height: 2px;
+        @include bg-img(url("../images/packed-2.png"),repeat,0px 0px);
+    }
+    .row-bottom {
+        position: absolute;
+        right: 0;
+        top:45px;
+        height: 2px;
+        left: 0;
+        @include bg-img(url("../images/packed-11.png"),repeat,0px 0px);
+        background-size:260px 2px;
+    }
+}
+.collection-bottom {
+    @include position(0px,45px,0px,0px);
+    min-height: 549px;
+    margin: 0;
+    border: 0 solid transparent;
+}
+.sc-outline {
+    @include position(0px,45px,0px,0px);
+    @include whb(276px,44px,transparent);
+    @include position(4px,0px,0px,0px);
+    &:after {
+        @include clearfix;
+    }
+    .collection-color-icon {
+        @include whb(276px,44px,transparent);
+        &:after {
+            @include clearfix;
+        }
+        >li {
+            float: left;
+        }
+        >.icon {
+            @include left-top(12px,12px,0px);
+            height: 17px;
+            width: 17px;
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-51px -571px);
+        }
+        >.title {
+            @include position(42px,0px,42px,0px);
+            height: 44px;
+            line-height: 44px;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            font-size: 17px;
+            color: #fff;
+        }
+        >.share {
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-119px -497px);
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            width: 23px;
+            height: 23px;
+            margin: 0;
+            cursor: pointer;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .row-bottom {
+        position: absolute;
+        left: 44px;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        @include bg-img(url("../images/packed-11.png"),no-repeat,0px 0px);
+        background-size:232px 2px;
+    }
+}
+/*left-bottom-view End*/
