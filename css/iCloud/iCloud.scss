@@ -333,7 +333,6 @@
 .right-center-view {
     @include position(0px,69px,0px,0px);
     @include whb(977px,567,transparent);
-    background: red;
     .right-center {
         @include position(0px,0px,0px,0px);
     }
