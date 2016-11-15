@@ -20,7 +20,7 @@ body {
 
 /*页头*/
 #iCloud {
-  width: 324px;
+  width: 389px;
   height: 638px;
   background: #383836;
   position: absolute;
@@ -37,7 +37,7 @@ body {
 
 /*left-top-view*/
 .left-top-view {
-  width: 324px;
+  width: 389px;
   height: 44px;
   background: transparent;
   position: absolute;
@@ -100,7 +100,7 @@ body {
   position: absolute;
   width: 11px;
   height: 7px;
-  top: 46%;
+  top: 50%;
   background-image: url("../images/packed-5.png");
   background-repeat: no-repeat;
   background-position: -155px -647px;
@@ -259,7 +259,7 @@ body {
   top: 45px;
   right: 0px;
   bottom: 0px;
-  width: 320px;
+  width: 389px;
   height: 44px;
   background: transparent;
   position: absolute;
@@ -276,7 +276,7 @@ body {
 }
 
 .sc-outline .collection-color-icon {
-  width: 320px;
+  width: 389px;
   height: 44px;
   background: transparent;
 }
@@ -344,20 +344,200 @@ body {
   background-image: url("../images/packed-11.png");
   background-repeat: no-repeat;
   background-position: 0px 0px;
-  background-size: 320px 2px;
+  background-size: 342px 2px;
 }
 
 /*left-bottom-view End*/
 /*right-main-view*/
 #iClouds {
-  width: 1025px;
+  width: 977px;
   height: 638px;
   background: #FAFAFA;
   position: absolute;
-  left: 324px;
+  left: 389px;
   top: 0px;
   right: 0px;
   bottom: 0px;
+}
+
+.right-top-view {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+.right-top-view:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.right-top-view div {
+  float: left;
+}
+
+.right-top-view > .left-top {
+  position: relative;
+  height: 44px;
+  width: 50%;
+}
+
+.right-top-view > .left-top > .left-icon {
+  position: absolute;
+  left: 11px;
+  width: 24px;
+  top: 8px;
+  height: 24px;
+  background-image: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -138px -359px;
+}
+
+.right-top-view > .left-top > input {
+  display: block;
+  width: 100%;
+  height: 43px;
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding-left: 42px;
+  color: #ccc;
+  font-size: 20px;
+}
+
+.right-top-view > .left-top > input:hover {
+  border-right: 1px solid rgba(128, 128, 128, 0.35);
+  background: #fff;
+}
+
+.right-top-view > .right-top {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  bottom: 0;
+  width: 136px;
+  height: 44px;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.right-top-view > .right-top > label {
+  line-height: 44px;
+  font-size: 21px;
+  padding-right: 18px;
+  cursor: pointer;
+}
+
+.right-top-view > .right-top > .info-img {
+  right: 54px;
+  position: absolute;
+  width: 11px;
+  height: 7px;
+  top: 50%;
+  background-image: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -155px -647px;
+  color: #333;
+}
+
+.right-top-view > .right-top > .line {
+  position: absolute;
+  margin-top: -11px;
+  right: 44px;
+  width: 1px;
+  top: 25%;
+  height: 22px;
+  overflow: hidden;
+  margin: 0;
+  border: solid 0 transparent;
+  background-color: #e5e5e5;
+}
+
+.right-top-view > .right-top > .help {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  left: 83%;
+  margin-top: -11px;
+  margin-left: -11px;
+  background-image: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -137px -526px;
+}
+
+.right-center-view {
+  position: absolute;
+  left: 0px;
+  top: 69px;
+  right: 0px;
+  bottom: 0px;
+  width: 977px;
+  height: 567;
+  background: transparent;
+  background: red;
+}
+
+.right-center-view .right-center {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.right-title {
+  position: absolute;
+  left: 28px;
+  right: 0;
+  top: 0;
+  height: 62px;
+}
+
+.right-title .title {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 40px;
+  line-height: 1.2;
+  cursor: default;
+  color: #41ACF9;
+}
+
+.right-title .right-button {
+  position: absolute;
+  right: 30px;
+  top: 17px;
+  height: 27px;
+  width: 39px;
+  cursor: pointer;
+}
+
+.right-title .right-button label {
+  color: #41ACF9;
+}
+
+.right-inner {
+  position: absolute;
+  left: 0px;
+  top: 56px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.right-inner .row-top {
+  position: absolute;
+  left: 30px;
+  right: 0px;
+  top: 0px;
+  height: 2px;
+  background-image: url("../packed-3.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 5;
 }
 
 /*right-main-view End*/
