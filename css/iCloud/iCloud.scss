@@ -50,7 +50,7 @@
 }
 /*页头*/
 #iCloud {
-    @include whb(280px,638px,#383836);
+    @include whb(324px,638px,#383836);
     @include left-top(0px,0px,0px);
     position: relative;
 }
@@ -60,7 +60,7 @@
 }
 /*left-top-view*/
 .left-top-view {
-    @include whb(100%,44px,transparent);
+    @include whb(324px,44px,transparent);
     @include left-right(0px,0px,0px);
     border-bottom: 1px solid #1a1a1a;
     ul {
@@ -133,7 +133,7 @@
 /*left-top-view End*/
 /*left-bottom-view*/
 .collection-top {
-    overflow: hidden;
+//  overflow: hidden;
     @include position(0px,0px,0px,0px);
     margin: 0;
     border: 0 solid transparent;
@@ -179,11 +179,11 @@
     .row-bottom {
         position: absolute;
         right: 0;
-        top:45px;
+        top: 45px;
         height: 2px;
         left: 0;
         @include bg-img(url("../images/packed-11.png"),repeat,0px 0px);
-        background-size:260px 2px;
+        background-size: 260px 2px;
     }
 }
 .collection-bottom {
@@ -194,13 +194,13 @@
 }
 .sc-outline {
     @include position(0px,45px,0px,0px);
-    @include whb(276px,44px,transparent);
+    @include whb(320px,44px,transparent);
     @include position(4px,0px,0px,0px);
     &:after {
         @include clearfix;
     }
     .collection-color-icon {
-        @include whb(276px,44px,transparent);
+        @include whb(320px,44px,transparent);
         &:after {
             @include clearfix;
         }
@@ -244,12 +244,13 @@
         bottom: 0;
         height: 2px;
         @include bg-img(url("../images/packed-11.png"),no-repeat,0px 0px);
-        background-size:232px 2px;
+        background-size: 320px 2px;
     }
 }
 /*left-bottom-view End*/
 /*right-main-view*/
-#iClouds{
-    
+#iClouds {
+    @include whb(1025px,638px,#FAFAFA);
+    @include position(324px,0px,0px,0px);
 }
 /*right-main-view End*/

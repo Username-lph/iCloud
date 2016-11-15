@@ -20,7 +20,7 @@ body {
 
 /*页头*/
 #iCloud {
-  width: 280px;
+  width: 324px;
   height: 638px;
   background: #383836;
   position: absolute;
@@ -37,7 +37,7 @@ body {
 
 /*left-top-view*/
 .left-top-view {
-  width: 100%;
+  width: 324px;
   height: 44px;
   background: transparent;
   position: absolute;
@@ -158,7 +158,6 @@ body {
 /*left-top-view End*/
 /*left-bottom-view*/
 .collection-top {
-  overflow: hidden;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -260,7 +259,7 @@ body {
   top: 45px;
   right: 0px;
   bottom: 0px;
-  width: 276px;
+  width: 320px;
   height: 44px;
   background: transparent;
   position: absolute;
@@ -277,7 +276,7 @@ body {
 }
 
 .sc-outline .collection-color-icon {
-  width: 276px;
+  width: 320px;
   height: 44px;
   background: transparent;
 }
@@ -345,9 +344,20 @@ body {
   background-image: url("../images/packed-11.png");
   background-repeat: no-repeat;
   background-position: 0px 0px;
-  background-size: 232px 2px;
+  background-size: 320px 2px;
 }
 
 /*left-bottom-view End*/
 /*right-main-view*/
+#iClouds {
+  width: 1025px;
+  height: 638px;
+  background: #FAFAFA;
+  position: absolute;
+  left: 324px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
 /*right-main-view End*/
