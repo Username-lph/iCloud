@@ -370,10 +370,54 @@
     .row-top {
         @include left-right(30px,0px,0px);
         height: 2px;
-        background-image: url("../packed-3.png");
+        background-image: url("../images/packed-11.png");
         background-position: 0 0;
         background-repeat: repeat;
         z-index: 5;
+    }
+    .finish {
+        @include position(0px,0px,0px,0px);
+    }
+    .complete {
+        @include left-right(30px,0px,0px);
+        height: 52px;
+        .container {
+            position: absolute;
+            top: 16px;
+            left: 51px;
+            margin: 0;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            color: #999;
+            font-size: 19px;
+            cursor: default;
+        }
+    }
+    .project {
+        @include left-right(0px,0px,52px);
+        height: 52px;
+        .row-top {
+            left: 81px;
+        }
+        .row-bottom {
+            position:absolute;
+            right:0px;
+            bottom: 0;
+            left: 81px;
+            height: 2px;
+            background-image: url("../images/packed-11.png");
+            background-position: 0 0;
+            background-repeat: repeat;
+            z-index: 5;
+        }
+        .pro-title {
+            position: absolute;
+            top: 14px;
+            left: 81px;
+            color: #999;
+            font-size: 19px;
+        }
     }
 }
 /*right-main-view End*/
