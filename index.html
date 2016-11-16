@@ -83,13 +83,13 @@
 								<li class="xk-info">
 									<div class="xk-img">
 										<div class="input">
-											<input type="text"/>
+											<input type="text" ng-model="lists[cu].name" ng-keyup="save2local()"/>
 										</div>
 										<div class="color">
 											<div class="tle">
 												列表颜色
 											</div>
-											<ul class="color-img">
+											<ul class="color-img" id="color">
 												<li class="img first">
 													<div class="img-icon"></div>
 												</li>

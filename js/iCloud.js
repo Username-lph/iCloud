@@ -6,6 +6,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 	/*本地存储*/
 	if(localStorage.iCloud) {
 		$scope.lists = JSON.parse(localStorage.iCloud);
+//		console.table($scope.lists);
 	} else {
 		$scope.lists = [];
 	}
@@ -35,7 +36,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 		}
 		return(max === -Infinity) ? 100 : max;
 	}
-
+	/*添加点击增加列表项*/
 	$scope.addList = function() {
 		var len = $scope.lists.length;
 		var index = len % 7;
@@ -98,6 +99,11 @@ app.directive("ngXk",function(){
 		link:function($scope,el){
 			$(el).on("click","label",function(){
 				$(".right-xk").toggle();
+				return false;
+			});
+			$(".right-button").on("click",false);
+			$(document).on("click",function(){
+				$(".right-xk").hide();
 			});
 		}
 	}
