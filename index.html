@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="./css/iCloud.css" />
 	</head>
 
-	<body ng-controller="mainiCloud">
-		
+	<body ng-controller="mainCloud">
+
 		<!--left-main-view-->
 		<div id="iCloud" class="ic-view left-main-view">
 			<!--left-top-view-->
@@ -22,7 +22,7 @@
 							<ul></ul>
 						</div>
 					</li>
-					<li class="add"></li>
+					<li class="add" ng-click="addList();save2local()"></li>
 				</ul>
 			</div>
 			<!--left-bottom-view-->
@@ -35,27 +35,33 @@
 					<div class="row-top"></div>
 					<div class="row-bottom"></div>
 				</div>
-				<ul class="collection-bottom">
-					<li class="sc-outline">
-						<ul class="collection-color-icon">
-							<li class="icon"></li>
-							<li class="title">新列表</li>
-							<li class="share"></li>
-						</ul>
+
+				<!--<ul class="collection-bottom" id="lists">-->
+				<div my-ul>
+					<li class="sc-outline" ng-repeat="v in lists track by $index">
+						<!--<ul class="collection-color-icon">-->
+						<div class="icon {{v.theme}}"></div>
+						<div class="title"></div>
+						<input type="text" ng-model="v.name" ng-keyup="save2local()" />
+						<!--<input type="text" ng-model="v.name" ng-keyup="save2local()" />-->
+						<div class="share"></div>
+						<!--</ul>-->
 						<div class="row-bottom"></div>
 					</li>
-				</ul>
+				</div>
+				<!--</ul>-->
+
 			</div>
 		</div>
 		<!--left-main-view End-->
-		
+
 		<!--right-main-view-->
 		<div id="iClouds" class="right-amin-view">
 			<!--right-top-->
 			<div class="right-top-view">
 				<div class="left-top">
 					<div class="left-icon"></div>
-					<input type="text" value="搜索所有提醒"/>
+					<input type="text" value="搜索所有提醒" />
 				</div>
 				<div class="right-top">
 					<label for="">刘鹏辉</label>
@@ -64,13 +70,57 @@
 					<div class="help"></div>
 				</div>
 			</div>
+			<!--right-top End-->
+
 			<!--right-center-->
 			<div class="right-center-view">
 				<div class="right-cetner">
 					<div class="right-title">
-						<div class="title">新列表</div>
-						<div class="right-button">
+						<div class="title">{{lists[cu].name}}</div>
+						<div ng-xk>
 							<label for="">选项</label>
+							<ul class="right-xk">
+								<li class="xk-info">
+									<div class="xk-img">
+										<div class="input">
+											<input type="text"/>
+										</div>
+										<div class="color">
+											<div class="tle">
+												列表颜色
+											</div>
+											<ul class="color-img">
+												<li class="img first">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+												<li class="img">
+													<div class="img-icon"></div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<ul class="xk-button">
+										<li class="delete">删除</li>
+										<li class="cancel">取消</li>
+										<li class="finish">完成</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div class="right-inner">
@@ -88,12 +138,13 @@
 					</div>
 				</div>
 			</div>
+			<!--right-center End-->
 		</div>
 		<!--right-main-view End-->
-		
+
 	</body>
 
 </html>
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/Angular.js"></script>
-<script type="text/javascript" src="js/iCloud.js"></script>
+<script type="text/javascript" src="./js/iCloud.js"></script>

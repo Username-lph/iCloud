@@ -133,7 +133,7 @@
 /*left-top-view End*/
 /*left-bottom-view*/
 .collection-top {
-    //  overflow: hidden;
+    //overflow: hidden;
     @include position(0px,0px,0px,0px);
     margin: 0;
     border: 0 solid transparent;
@@ -188,53 +188,59 @@
 }
 .collection-bottom {
     @include position(0px,45px,0px,0px);
+    margin-top: 45px;
     min-height: 549px;
     margin: 0;
     border: 0 solid transparent;
+    overflow: auto;
+    .active {
+        background: #1A1A1A;
+    }
 }
 .sc-outline {
-    @include position(0px,45px,0px,0px);
+    //  @include position(0px,45px,0px,0px);
     @include whb(389px,44px,transparent);
-    @include position(4px,0px,0px,0px);
+    //  @include position(4px,0px,0px,0px);
+    position: relative;
     &:after {
         @include clearfix;
     }
-    .collection-color-icon {
-        @include whb(389px,44px,transparent);
-        &:after {
-            @include clearfix;
-        }
-        >li {
-            float: left;
-        }
-        >.icon {
-            @include left-top(12px,12px,0px);
-            height: 17px;
-            width: 17px;
-            @include bg-img(url("../images/packed-5.png"),no-repeat,-51px -571px);
-        }
-        >.title {
-            @include position(42px,0px,42px,0px);
-            height: 44px;
-            line-height: 44px;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-            white-space: nowrap !important;
-            font-size: 17px;
+    //  .collection-color-icon {
+    //      //      @include whb(389px,44px,transparent);
+    //      &:after {
+    //          @include clearfix;
+    //      }
+    //  }
+    >div {
+        float: left;
+    }
+    >.icon {
+        @include left-top(12px,12px,0px);
+        height: 17px;
+        width: 17px;
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-51px -571px);
+    }
+    >.title {
+        @include position(42px,0px,42px,0px);
+        height: 44px;
+        line-height: 44px;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 17px;
+        color: #fff;
+    }
+    >.share {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-119px -497px);
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        width: 23px;
+        height: 23px;
+        margin: 0;
+        cursor: pointer;
+        &:hover {
             color: #fff;
-        }
-        >.share {
-            @include bg-img(url("../images/packed-5.png"),no-repeat,-119px -497px);
-            position: absolute;
-            top: 9px;
-            right: 10px;
-            width: 23px;
-            height: 23px;
-            margin: 0;
-            cursor: pointer;
-            &:hover {
-                color: #fff;
-            }
         }
     }
     .row-bottom {
@@ -247,11 +253,24 @@
         background-size: 342px 2px;
     }
 }
+.sc-outline input {
+    width: 293px;
+    height: 44px;
+    position: absolute;
+    left: 40px;
+    padding-left: 15px;
+    font-size: 20px;
+    color: #dfdfdf;
+    outline: none;
+    border: none;
+    background: transparent;
+}
 /*left-bottom-view End*/
 /*right-main-view*/
 #iClouds {
-    @include whb(977px,638px,#FAFAFA);
+    @include whb(977px,638px,url(../images/packed-4.png));
     @include position(389px,0px,0px,0px);
+    min-width: 680px;
 }
 .right-top-view {
     position: relative;
@@ -299,8 +318,10 @@
         cursor: pointer;
         >label {
             line-height: 44px;
+            font-weight: 100;
             font-size: 21px;
             padding-right: 18px;
+            color: #ccc;
             cursor: pointer;
         }
         >.info-img {
@@ -337,6 +358,12 @@
         @include position(0px,0px,0px,0px);
     }
 }
+@mixin img-icon($w, $h, $ml, $mt) {
+    width: $w;
+    height: $h;
+    margin-left: $ml;
+    margin-top: $mt;
+}
 .right-title {
     position: absolute;
     left: 28px;
@@ -351,6 +378,7 @@
         line-height: 1.2;
         cursor: default;
         color: #41ACF9;
+        font-weight: 100;
     }
     .right-button {
         position: absolute;
@@ -362,8 +390,143 @@
         label {
             color: #41ACF9;
         }
+        .input {
+            @include whb(294px,37px,transparent);
+            margin: 20px auto;
+            z-index: 30;
+            padding: 10px;
+            input {
+                @include whb(294px,37px,#fff);
+                margin: -10px;
+                position: absolute;
+                padding-left: 15px;
+                font-size: 21px;
+                border: 1px solid #D9D9D9;
+                border-radius: 3px;
+            }
+        }
+    }
+    .right-xk {
+        @include whb(365px,236px,#fff);
+        position: absolute;
+        right: 58px;
+        top: -75px;
+        z-index: 10;
+        border-radius: 10px;
+        padding: 8px;
+        box-shadow: 0 0 9px rgba(0,0,0,0.5); //      display:none;
+        .xk-info {
+            @include whb(355px,226px,#fff);
+            @include center;
+            border-radius: 8px;
+            border: 1px solid #E5E5E5;
+        }
+        .xk-img {
+            @include whb(100%,168px,transparent);
+            position: absolute;
+            right: 1px;
+            top: 0;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-right: -1px;
+        }
+        .xk-button {
+            @include whb(100%,57px,transparent);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            &:after {
+                @include clearfix;
+            }
+            li {
+                float: left;
+                cursor: pointer;
+            }
+            .delete {
+                line-height: 25px;
+                color: #ff3b30;
+                padding: 17px;
+                margin-right: 60px;
+                margin-left: 15px;
+            }
+            .cancel {
+                margin: 0 10px 0 66px;
+                line-height: 25px;
+                color: #1D89FF;
+                padding: 17px;
+            }
+            .finish {
+                @include whb(55px,26px,transparent);
+                line-height: 26px;
+                margin-top: 17px;
+                font-weight: 600;
+                color: #007AFF;
+                text-align: right;
+                white-space: nowrap;
+                letter-spacing: 3px;
+                border-left: 1px solid #999;
+            }
+        }
+    }
+    .color {
+        @include whb(294px,auto,transparent);
+        margin: 0 auto;
+        .tle {
+            padding: 10px 10px 10px 0;
+        }
+        .color-img {
+            @include whb(316px,33px,transparent);
+            margin-left:-10px;
+            li {
+                float: left;
+                height: 33px;
+                width: 33px;
+                margin-left: 10px;
+                div {
+                    @include img-icon(25px,25px,4px,4px);
+                    background-image: url("../images/stylesheet-1.png");
+                    background-repeat: no-repeat;
+                }
+            }
+            li.first div {
+                margin-left: 0;
+                background-position: 0 -231px;
+            }
+            li:nth-child(2) div {
+                background-position: 0 -256px;
+            }
+            li:nth-child(3) div {
+                background-position: 0 -281px;
+            }
+            li:nth-child(4) div {
+                background-position: 0 -306px;
+            }
+            li:nth-child(5) div {
+                background-position: 0 -331px;
+            }
+            li:nth-child(6) div {
+                background-position: 0 -356px;
+            }
+            li:nth-child(7) div {
+                background-position: 0 -381px;
+            }
+        }
     }
 }
+/*利用 list和map循环来写样式*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 0px -281px, "yellow":#F3CB00 0px -306px, "blrown":#A0855E 0px -331px, "red":#F62368 0px -356px, "orange":#F99600 0px -381px );
+@each $v in map_keys($Map) {
+    $l: map_get($Map,$v);
+    .img div.#{$v} {
+        background-image: url("../images/stylesheet-1.png");
+        background-position: nth($l,2) nth($l,3);
+    }
+}
+/*利用 list和map循环来写样式  End*/
 .right-inner {
     @include position(0px,56px,0px,0px);
     .row-top {
@@ -400,8 +563,8 @@
             left: 81px;
         }
         .row-bottom {
-            position:absolute;
-            right:0px;
+            position: absolute;
+            right: 0;
             bottom: 0;
             left: 81px;
             height: 2px;
@@ -420,3 +583,23 @@
     }
 }
 /*right-main-view End*/
+/*list map 循环*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map1: ( "red":#f72469 10px 10px, "yellow":#f3cb00 20px 20px, "blue":#40acf9 10px 30px, "green":#fff 22px 33px );
+@each $v in map_keys($map1) {
+    $l: map_get($map1,$v);
+    .images .#{$v} {
+        color: nth($l,1);
+        background-image: url("aa.png");
+        background-position: nth($l,2) nth($l,3);
+    }
+}
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map: ( "purple":#C970E3 -34px -571px, "green":#6EDC32 -0px -571px, "blue":#40ABF8 -51px -571px, "yellow":#F3CB00 -85px -571px, "blrown":#A0855E -133px -549px, "red":#F62368 -68px -571px, "orange":#F99600 -102px -571px );
+@each $v in map_keys($map) {
+    $l: map_get($map,$v);
+    .sc-outline .icon.#{$v} {
+        background-image: url("../images/packed-5.png");
+        background-position: nth($l,2) nth($l,3);
+    }
+}
