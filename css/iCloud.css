@@ -834,6 +834,9 @@ body {
   margin-left: 30px;
   white-space: nowrap;
   letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ccc;
 }
 
 .right-inner .complete-list .com-list-title .row-bottom {
@@ -897,19 +900,9 @@ body {
   left: 36px;
   height: 32px;
   width: 32px;
-  margin-top: 8px;
+  margin-top: 9px;
   cursor: pointer;
   border: transparent !important;
-}
-
-.right-inner .complete-list .com-list-inner a.button .checked {
-  background-image: url("../images/packed-5.png");
-  background-position: -128px -401px;
-  background-repeat: no-repeat;
-  height: 32px;
-  width: 32px;
-  margin: 0;
-  border: none;
 }
 
 .right-inner .complete-list .com-list-inner .x-info {
@@ -981,7 +974,7 @@ body {
   left: 0;
   right: 0;
   height: 52px;
-  margin-top: 2px;
+  margin-top: 52px;
 }
 
 .right-inner .project .row-top {
@@ -1013,6 +1006,126 @@ body {
 /*right-main-view End*/
 /*list map 循环*/
 /*建立新项目左侧图标*/
+.com-list-inner .checked.purple {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -128px -401px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.green {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -136px -199px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.blue {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -106px -359px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.yellow {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -128px -433px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.blrown {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -136px -167px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.red {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -64px -433px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+.com-list-inner .checked.orange {
+  background: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: 0px -401px;
+  width: 33px;
+  height: 33px;
+  border: none;
+  margin: 0;
+}
+
+/*边框及背景颜色*/
+.com-list-inner.active.purple {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.green {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.blue {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.yellow {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.blrown {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.red {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.com-list-inner.active.orange {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
 #new .new-img.purple {
   background: url("../images/packed-5.png");
   background-position: -64px -401px;
@@ -1102,6 +1215,90 @@ body {
   position: absolute;
   left: 36px;
   top: 8px;
+}
+
+.right-button .ngxk.purple {
+  color: #C970E3;
+}
+
+.right-inner .clear.purple {
+  color: #C970E3;
+}
+
+.x-info.purple {
+  color: #C970E3;
+}
+
+.right-button .ngxk.green {
+  color: #6EDC32;
+}
+
+.right-inner .clear.green {
+  color: #6EDC32;
+}
+
+.x-info.green {
+  color: #6EDC32;
+}
+
+.right-button .ngxk.blue {
+  color: #40ABF8;
+}
+
+.right-inner .clear.blue {
+  color: #40ABF8;
+}
+
+.x-info.blue {
+  color: #40ABF8;
+}
+
+.right-button .ngxk.yellow {
+  color: #F3CB00;
+}
+
+.right-inner .clear.yellow {
+  color: #F3CB00;
+}
+
+.x-info.yellow {
+  color: #F3CB00;
+}
+
+.right-button .ngxk.blrown {
+  color: #A0855E;
+}
+
+.right-inner .clear.blrown {
+  color: #A0855E;
+}
+
+.x-info.blrown {
+  color: #A0855E;
+}
+
+.right-button .ngxk.red {
+  color: #F62368;
+}
+
+.right-inner .clear.red {
+  color: #F62368;
+}
+
+.x-info.red {
+  color: #F62368;
+}
+
+.right-button .ngxk.orange {
+  color: #F99600;
+}
+
+.right-inner .clear.orange {
+  color: #F99600;
+}
+
+.x-info.orange {
+  color: #F99600;
 }
 
 /*右侧列表循环*/

@@ -79,7 +79,7 @@
 						<div class="title {{lists[cu].theme}}">{{lists[cu].name}}</div>
 						<!--右侧选项点击-->
 						<div ng-xk>
-							<label for="">选项</label>
+							<label for="" class="ngxk {{lists[cu].theme}}">选项</label>
 							<ul class="right-xk">
 								<li class="xk-info">
 									<div class="xk-img">
@@ -87,7 +87,7 @@
 											<input type="text" class="lb {{lists[cu].theme}}" ng-model="lists[cu].name" ng-keyup="lists[cu].theme;save2local()" />
 										</div>
 										<div class="color">
-											<div class="tle">
+											<div class="tle {{lists[cu].theme}}">
 												列表颜色
 											</div>
 											<ul class="color-img" id="theme">
@@ -115,8 +115,8 @@
 											</ul>
 										</div>
 									</div>
-									<ul class="xk-button">
-										<li class="delete">删除</li>
+									<ul xk-button class="">
+										<li class="delete" ng-click="delete()">删除</li>
 										<li class="cancel">取消</li>
 										<li class="finish">完成</li>
 									</ul>
@@ -130,10 +130,10 @@
 						<div finish class="">
 							<div class="complete">
 								<div class="btn"></div>
-								<div class="container">已完成：0 项</div>
-								<div class="clear">清除已完成事项</div>
+								<div class="container">已完成：{{lists[cu].todos.count()}}</div>
+								<div class="clear {{lists[cu].theme}}">清除已完成事项</div>
 							</div>
-							<ul class="complete-list">
+							<ul complete-list class="" id="newimg">
 								<li class="com-list-title">
 									<div class="row-top"></div>
 									<div class="title">2016年11月18日
@@ -145,18 +145,18 @@
 								<li class="com-list-inner">
 									<input type="text" class="list-inner"/>
 									<a href="javascript:;" class="button">
-										<div class="checked"></div>
+										<div class="checked {{lists[cu].theme}}"></div>
 									</a>
-									<span class="x-info">详细信息</span>
+									<span class="x-info {{lists[cu].theme}}">详细信息</span>
 									<div class="inner-row-bottom"></div>
 									<!--<div class="inner-row-bottom2"></div>-->
 								</li>
 								<li class="com-list-inner">
 									<input type="text" class="list-inner"/>
 									<a href="javascript:;" class="button">
-										<div class="checked"></div>
+										<div class="checked {{lists[cu].theme}}"></div>
 									</a>
-									<span class="x-info">详细信息</span>
+									<span class="x-info {{lists[cu].theme}}">详细信息</span>
 									<!--<div class="inner-row-bottom"></div>-->
 									<div class="inner-row-bottom2"></div>
 								</li>

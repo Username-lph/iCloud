@@ -597,6 +597,9 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
                 margin-left: 30px;
                 white-space: nowrap;
                 letter-spacing: 1px;
+                font-size: 16px;
+                font-weight: 400;
+                color: #ccc;
             }
             .row-bottom {
                 @include row-bottom;
@@ -642,18 +645,10 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
                 left: 36px;
                 height: 32px;
                 width: 32px;
-                margin-top: 8px;
+                margin-top: 9px;
                 cursor: pointer;
                 border: transparent !important;
-                .checked {
-                    background-image: url("../images/packed-5.png");
-                    background-position: -128px -401px;
-                    background-repeat: no-repeat;
-                    height: 32px;
-                    width: 32px;
-                    margin: 0;
-                    border: none;
-                }
+                .checked {}
             }
             .x-info {
                 display: block;
@@ -710,7 +705,7 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
             padding-left: 15px;
             outline: none;
             font-size: 20px;
-            background:transparent;
+            background: transparent;
         }
     }
     /*新项目*/
@@ -719,7 +714,7 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
         left: 0;
         right: 0;
         height: 52px;
-        margin-top: 2px;
+        margin-top: 52px;
         .row-top {
             left: 81px;
         }
@@ -742,6 +737,30 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
 /*list map 循环*/
 /*建立新项目左侧图标*/
 $color-list: purple,green,blue,yellow,blrown,red,orange;
+$map3: ( "purple":#C970E3 -128px -401px, "green":#6EDC32 -136px -199px, "blue":#40ABF8 -106px -359px, "yellow":#F3CB00 -128px -433px, "blrown":#A0855E -136px -167px, "red":#F62368 -64px -433px, "orange":#F99600 0px -401px );
+@each $v in map_keys($map3) {
+    $l: map_get($map3,$v);
+    .com-list-inner .checked.#{$v} {
+        background: url("../images/packed-5.png");
+        background-repeat: no-repeat;
+        background-position: nth($l,2) nth($l,3);
+        width: 33px;
+        height: 33px;
+        border: none;
+        margin: 0;
+    }
+}
+/*边框及背景颜色*/
+$map5: ( "purple":#C970E3 #F6ECF9, "green":#6EDC32 #E5F1E1, "blue":#40ABF8 #E0EFF7, "yellow":#F3CB00 #F5F0DF, "blrown":#A0855E #EEEBE7, "red":#F62368 #FAE5EB, "orange":#F99600 #F1E4D8);
+@each $v in map_keys($map5) {
+    .com-list-inner.active.#{$v} {
+        background: nth($l,1);
+        border-top: 1px solid nth($l,2);
+        border-bottom: 1px solid nth($l,2);
+        z-index: 333;
+    }
+}
+$color-list: purple,green,blue,yellow,blrown,red,orange;
 $map2: ( "purple":#C970E3 -64px -401px, "green":#6EDC32 -74px -359px, "blue":#40ABF8 0px -433px, "yellow":#F3CB00 -32px -465px, "blrown":#A0855E -32px -433px, "red":#F62368 -96px -433px, "orange":#F99600 -136px -235px );
 @each $v in map_keys($map2) {
     $l: map_get($map2,$v);
@@ -756,6 +775,18 @@ $map2: ( "purple":#C970E3 -64px -401px, "green":#6EDC32 -74px -359px, "blue":#40
         position: absolute;
         left: 36px;
         top: 8px;
+    }
+}
+@each $v in map_keys($map2) {
+    $l: map_get($map2,$v);
+    .right-button .ngxk.#{$v} {
+        color: nth($l,1);
+    }
+    .right-inner .clear.#{$v} {
+        color: nth($l,1);
+    }
+    .x-info.#{$v} {
+        color: nth($l,1);
     }
 }
 /*右侧列表循环*/

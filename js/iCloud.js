@@ -40,21 +40,21 @@ app.controller("mainCloud", ["$scope", function($scope) {
 			localStorage.iCloud = JSON.stringify($scope.lists);
 			$scope.todos = [];
 		}
-		/*删除*/
-		//	$scope.delete=function(){
-		//		$scope.lists.splice($scope.cu,1);
-		//	}
+	/*删除*/
+	$scope.delete=function(){
+		$scope.lists.splice($scope.cu,1);
+	}
 
 	/*统计已完成项目*/
-	//	$scope.count=function(){
-	//		var r = 0;
-	//		$scope.list[$scope.cu].todos.forEach(function(){
-	//			if(state===1){
-	//				r++;
-	//			}
-	//		});
-	//		return r;
-	//	}
+	$scope.count=function(){
+		var r = 0;
+		$scope.lists[$scope.cu].todos.forEach(function(){
+			if(state===1){
+				r++;
+			}
+		});
+		return r;
+	}
 
 	/*清除所有已完成*/
 	//	$scope.clear = function() {
@@ -151,9 +151,45 @@ app.directive("ngXk", function() {
 		}
 	}
 });
+/*边框及背景*/
+app.directive("completeList",function(){
+	return {
+		restrict:"A",
+		transclude:true,
+		replace:true,
+		template: '<div class="complete-list"><div ng-transclude></div></div>',
+		link:function($scope,el){
+			$(".com-list-inner").on("click",function(){
+				$(this).addClass(".active");
+				return false;
+			});
+		}
+	}
+});
+
+/*删除	取消     完成*/
+app.directive("xkButton",function(){
+	return {
+		restrict:"A",
+		transclude:true,
+		replace:true,
+		template: '<div class="xk-button"><div ng-transclude></div></div>',
+		link:function($scope,el){
+			$(el).on("click",".cancel",function(){
+				$(".right-xk").fadeOut();
+				return false;
+			});
+			$(el).on("click",".finish",function(){
+				$(".right-xk").fadeOut();
+				return false;
+			});
+		}
+	}
+});
 
 /*完成事项*/
 $(".complete-list").hide();
+$(".complete .clear").hide();
 app.directive("finish",function(){
 	return {
 		restrict:"A",
@@ -166,12 +202,15 @@ app.directive("finish",function(){
 				$(this).toggleClass("active");
 //				console.log($("complete-list"));
 				$(".complete-list").fadeToggle();
+				$(".complete .clear").fadeToggle();
+				return false;
 			});
 		}
 	}
 });
 
 /*建立新项目左侧图标*/
+$("#new").hide();
 app.directive("project",function(){
 	return {
 		restrict:"A",
@@ -179,7 +218,15 @@ app.directive("project",function(){
 		replace:true,
 		template:'<div class="project"><div ng-transclude></div></div>',
 		link:function($scope,el){
-			alert(1)
+			$(el).on("click",".pro-title",function(){
+				$("#new").fadeToggle();
+				return false;
+			});
+//			$(document).on('click',function(){
+//				$("#new").fadeOut();
+//				return false;
+//			});
 		}
 	}
 });
+
