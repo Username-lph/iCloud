@@ -42,7 +42,7 @@
 						<!--<ul class="collection-color-icon">-->
 						<div class="icon {{v.theme}}"></div>
 						<div class="title"></div>
-						<input type="text" ng-model="v.name" ng-keyup="save2local()"/>
+						<input type="text" ng-model="v.name" ng-keyup="save2local()" />
 						<!--<input type="text" ng-model="v.name" ng-keyup="save2local()" />-->
 						<div class="share"></div>
 						<!--</ul>-->
@@ -130,9 +130,10 @@
 						<div finish class="">
 							<div class="complete">
 								<div class="btn"></div>
-								<div class="container">已完成：{{lists[cu].todos.count()}}</div>
+								<div class="container">已完成：<b>{{count()}}</b> 项</div>
 								<div class="clear {{lists[cu].theme}}">清除已完成事项</div>
 							</div>
+							<!--中间完成项目-->
 							<ul complete-list class="" id="newimg">
 								<li class="com-list-title">
 									<div class="row-top"></div>
@@ -142,42 +143,66 @@
 									<!--<input type="date" />-->
 									<div class="row-bottom"></div>
 								</li>
-								<li class="com-list-inner">
-									<input type="text" class="list-inner"/>
+								<li class="com-list-inner" ng-class='lists[cu].theme' ng-if="v.state==1" ng-repeat="v in lists[cu].todos track by $index">
+									<input type="text" class="list-inner" value="" {{v.name}} ng-model="v.name"/>
 									<a href="javascript:;" class="button">
-										<div class="checked {{lists[cu].theme}}"></div>
+										<div class="checked {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
 									</a>
 									<span class="x-info {{lists[cu].theme}}">详细信息</span>
 									<div class="inner-row-bottom"></div>
 									<!--<div class="inner-row-bottom2"></div>-->
 								</li>
-								<li class="com-list-inner">
-									<input type="text" class="list-inner"/>
+								<!--<li class="com-list-inner {{lists[cu].theme}}" ng-class='lists[cu].them' ng-if="v.state==1" ng-repeat="v in lists[cu].todos track by $index">
+									<input type="text" class="list-inner" value="" {{v.name}} ng-model="v.name"/>
 									<a href="javascript:;" class="button">
-										<div class="checked {{lists[cu].theme}}"></div>
+										<div class="checked {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
 									</a>
 									<span class="x-info {{lists[cu].theme}}">详细信息</span>
 									<!--<div class="inner-row-bottom"></div>-->
-									<div class="inner-row-bottom2"></div>
-								</li>
+									<!--<div class="inner-row-bottom2"></div>-->
+								<!--</li>-->
 							</ul>
-							<div id="new">
-								<div class="new-img {{lists[cu].theme}}"></div>
-								<input type="text" class="new"/>
+							<!--中间已完成项目   End-->
+
+							<!--新建项目-->
+							<div id="new" ngsc class="" ng-repeat="v in lists[cu].todos track by $index" ng-class='lists[cu].theme' ng-if="v.state==0">
+								<div class="new-img {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
+								<input type="text" class="new" value="{{v.name}}" ng-model="v.name"/>
 							</div>
+
 							<div project class="">
 								<div class="row-top"></div>
 								<div class="row-bottom"></div>
-								<div class="pro-title">新项目...</div>
+								<div class="pro-title" z-j ng-click="addlist2($index);save2local()">新项目...</div>
 							</div>
+							<!--新建项目     End-->
+
 						</div>
 					</div>
 				</div>
 			</div>
 			<!--right-center End-->
+
 		</div>
 		<!--right-main-view End-->
-
+		
+		<!--clear-->
+		<div id="clear">
+			<div class="clear-img"></div>
+			<div class="clear-inner">
+				<p class="sc">是否清除所有已完成提醒？</p>
+				<p class="ms">所有已完成的提醒事项将永久删除。您不能撤销此操作。</p>
+			</div>
+			<ul class="" bttn>
+				<li class="qx">
+					<a href="javascript:;">取消</a>
+				</li>
+				<li class="qc">
+					<a href="javascript:;">清除已完成事项</a>
+				</li>
+			</ul>
+		</div>
+		<!--clear End-->
 	</body>
 
 </html>

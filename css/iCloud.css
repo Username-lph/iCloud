@@ -764,12 +764,12 @@ body {
   width: 23px;
   height: 23px;
   background-image: url("../images/packed-5.png");
-  background-position: -96px -497px;
+  background-position: -23px -526px;
   background-repeat: no-repeat;
 }
 
 .right-inner .complete .btn.active {
-  background-position: -23px -526px;
+  background-position: -96px -497px;
 }
 
 .right-inner .complete .container {
@@ -792,6 +792,7 @@ body {
   font-size: 19px;
   color: #999;
   cursor: pointer;
+  display: none;
 }
 
 .right-inner .complete-list {
@@ -800,6 +801,7 @@ body {
   background: transparent;
   margin-top: 52px;
   overflow: auto;
+  display: none;
 }
 
 .right-inner .complete-list:after {
@@ -883,13 +885,6 @@ body {
   background: none;
 }
 
-.right-inner .complete-list .com-list-inner:hover {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
-  z-index: 333;
-}
-
 .right-inner .complete-list .com-list-inner:hover .com-list-title .row-bottom {
   display: none;
 }
@@ -944,10 +939,7 @@ body {
 .right-inner #new {
   width: 100%;
   height: 52px;
-  background: transparent;
   margin-top: 52px;
-  border-top: 1px solid #6EDC32;
-  border-bottom: 1px solid #6EDC32;
   position: relative;
 }
 
@@ -1004,6 +996,119 @@ body {
 }
 
 /*right-main-view End*/
+/*clear清除选项*/
+#clear {
+  width: 450px;
+  height: 170px;
+  background: #fff;
+  transition: transform 0.06s ease-in-out 0s;
+  transform: scale(0, 0);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 15px;
+  z-index: 999;
+  box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.39);
+}
+
+#clear.active {
+  transform: scale(1, 1);
+}
+
+#clear .clear-img {
+  position: absolute;
+  left: 25px;
+  top: 19px;
+  height: 65px;
+  width: 68px;
+  background-image: url("../images/packed-5.png");
+  background-repeat: no-repeat;
+  background-position: -68px -167px;
+}
+
+#clear .clear-inner {
+  width: 350px;
+  height: 78px;
+  background: transparent;
+  margin-left: 95px;
+  margin-top: 7px;
+}
+
+#clear .clear-inner .sc {
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 1.2em;
+  overflow: visible;
+  font-size: 21px;
+  font-weight: normal;
+  color: #313131;
+  padding-left: 15px;
+  margin-bottom: 5px;
+}
+
+#clear .clear-inner .ms {
+  margin-top: 11px;
+  font-size: 17px;
+  line-height: 21px;
+  color: #474747;
+  overflow: visible;
+  word-wrap: break-word;
+  padding-left: 15px;
+}
+
+#clear .bttn {
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  margin-top: 20px;
+}
+
+#clear .bttn:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#clear .bttn li {
+  float: left;
+  width: 139px;
+  text-align: right;
+  height: 24px;
+  line-height: 1.5;
+  padding-right: 26px;
+  margin-top: 10px;
+}
+
+#clear .bttn li a {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#clear .bttn .qx {
+  margin-left: 146px;
+  border-right: 1px solid #999;
+}
+
+#clear .bttn .qx a {
+  color: #308CFB;
+}
+
+#clear .bttn .qc {
+  border-right: none;
+  margin-left: 26px;
+}
+
+#clear .bttn .qc a {
+  color: #167EFB;
+  font-weight: 600;
+}
+
+/*clear清除选项  End*/
 /*list map 循环*/
 /*建立新项目左侧图标*/
 .com-list-inner .checked.purple {
@@ -1076,56 +1181,107 @@ body {
   margin: 0;
 }
 
+/*建立新项目左侧图标 End*/
 /*边框及背景颜色*/
 .com-list-inner.active.purple {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #F6ECF9;
+  border-top: 1px solid #C970E3;
+  border-bottom: 1px solid #C970E3;
+  z-index: 333;
+}
+
+.newx.active.purple {
+  background: #F6ECF9;
+  border-top: 1px solid #C970E3;
+  border-bottom: 1px solid #C970E3;
   z-index: 333;
 }
 
 .com-list-inner.active.green {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #E5F1E1;
+  border-top: 1px solid #6EDC32;
+  border-bottom: 1px solid #6EDC32;
+  z-index: 333;
+}
+
+.newx.active.green {
+  background: #E5F1E1;
+  border-top: 1px solid #6EDC32;
+  border-bottom: 1px solid #6EDC32;
   z-index: 333;
 }
 
 .com-list-inner.active.blue {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #E0EFF7;
+  border-top: 1px solid #40ABF8;
+  border-bottom: 1px solid #40ABF8;
+  z-index: 333;
+}
+
+.newx.active.blue {
+  background: #E0EFF7;
+  border-top: 1px solid #40ABF8;
+  border-bottom: 1px solid #40ABF8;
   z-index: 333;
 }
 
 .com-list-inner.active.yellow {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #F5F0DF;
+  border-top: 1px solid #F3CB00;
+  border-bottom: 1px solid #F3CB00;
+  z-index: 333;
+}
+
+.newx.active.yellow {
+  background: #F5F0DF;
+  border-top: 1px solid #F3CB00;
+  border-bottom: 1px solid #F3CB00;
   z-index: 333;
 }
 
 .com-list-inner.active.blrown {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #EEEBE7;
+  border-top: 1px solid #A0855E;
+  border-bottom: 1px solid #A0855E;
+  z-index: 333;
+}
+
+.newx.active.blrown {
+  background: #EEEBE7;
+  border-top: 1px solid #A0855E;
+  border-bottom: 1px solid #A0855E;
   z-index: 333;
 }
 
 .com-list-inner.active.red {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #FAE5EB;
+  border-top: 1px solid #F62368;
+  border-bottom: 1px solid #F62368;
+  z-index: 333;
+}
+
+.newx.active.red {
+  background: #FAE5EB;
+  border-top: 1px solid #F62368;
+  border-bottom: 1px solid #F62368;
   z-index: 333;
 }
 
 .com-list-inner.active.orange {
-  background: #E4F0E0;
-  border-top: 1px solid #49BF1F;
-  border-bottom: 1px solid #49BF1F;
+  background: #F1E4D8;
+  border-top: 1px solid #F99600;
+  border-bottom: 1px solid #F99600;
   z-index: 333;
 }
 
+.newx.active.orange {
+  background: #F1E4D8;
+  border-top: 1px solid #F99600;
+  border-bottom: 1px solid #F99600;
+  z-index: 333;
+}
+
+/*边框及背景颜色 End*/
 #new .new-img.purple {
   background: url("../images/packed-5.png");
   background-position: -64px -401px;

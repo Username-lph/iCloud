@@ -3,10 +3,38 @@ var app = angular.module("iCloud", []);
 app.controller("mainCloud", ["$scope", function($scope) {
 	var colors = ["purple", "green", "blue", "yellow", "blrown", "red", "orange"];
 	$scope.cu = 0;
-	$scope.theme=[{color:"purple"},{color:"green"},{color:"blue"},{color:"yellow"},{color:"blrown"},{color:"red"},{color:"orange"}];
-	
+	$scope.theme = [{
+		color: "purple"
+	}, {
+		color: "green"
+	}, {
+		color: "blue"
+	}, {
+		color: "yellow"
+	}, {
+		color: "blrown"
+	}, {
+		color: "red"
+	}, {
+		color: "orange"
+	}];
+
 	//*建立新项目左侧图标*//
-	$scope.newimg=[{color:"purple"},{color:"green"},{color:"blue"},{color:"yellow"},{color:"blrown"},{color:"red"},{color:"orange"}];
+	$scope.newimg = [{
+		color: "purple"
+	}, {
+		color: "green"
+	}, {
+		color: "blue"
+	}, {
+		color: "yellow"
+	}, {
+		color: "blrown"
+	}, {
+		color: "red"
+	}, {
+		color: "orange"
+	}];
 	/*建立新项目左侧图标   未用*/
 	/*本地存储*/
 	if(localStorage.iCloud) {
@@ -15,16 +43,22 @@ app.controller("mainCloud", ["$scope", function($scope) {
 	} else {
 		$scope.lists = [
 			//右侧列表
-			//			{id:103,name:"购物列表",theme:"blue",
-			//				todos:[
-			//					{name:"面食",state:1},
-			//					{name:"大米",state:0}
-			//				]
-			//			}
+			{
+				id: 103,
+				name: "购物列表",
+				theme: "blue",
+				todos: [{
+					name: "面食",
+					state: 1
+				}, {
+					name: "大米",
+					state: 0
+				} ]
+			}
 		];
 	}
 	//	$scope.lists = [];
-	
+
 	//	$scope.lists = [{
 	//		id: 101,
 	//		name: "新建列表1",
@@ -40,16 +74,16 @@ app.controller("mainCloud", ["$scope", function($scope) {
 			localStorage.iCloud = JSON.stringify($scope.lists);
 			$scope.todos = [];
 		}
-	/*删除*/
-	$scope.delete=function(){
-		$scope.lists.splice($scope.cu,1);
+		/*删除*/
+	$scope.delete = function() {
+		$scope.lists.splice($scope.cu, 1);
 	}
 
 	/*统计已完成项目*/
-	$scope.count=function(){
+	$scope.count = function() {
 		var r = 0;
-		$scope.lists[$scope.cu].todos.forEach(function(){
-			if(state===1){
+		$scope.lists[$scope.cu].todos.forEach(function(v, i) {
+			if(v.state == 1) {
 				r++;
 			}
 		});
@@ -57,16 +91,15 @@ app.controller("mainCloud", ["$scope", function($scope) {
 	}
 
 	/*清除所有已完成*/
-	//	$scope.clear = function() {
-	//		var newarr = [];
-	//		$scope.lists[$scope.cu].todos.forEach(function() {
-	//			if(v.state===0){
-	//				newarr.push(v);
-	//			}
-	//		});
-	//		$scope.lists[$scope.cu].todos=newarr;
-	//
-	//	}
+	$scope.clear = function() {
+		var newarr = [];
+		$scope.lists[$scope.cu].todos.forEach(function(v, i) {
+			if(v.state == 0) {
+				newarr.push(v);
+			}
+		});
+		$scope.lists[$scope.cu].todos = newarr;
+	}
 
 	/*统计已完成项目*/
 	function maxId() {
@@ -91,6 +124,24 @@ app.controller("mainCloud", ["$scope", function($scope) {
 				//			todos:[];
 		};
 		$scope.lists.push(v);
+	}
+
+	$scope.addlist2 = function() {
+		var i = {
+			name: "",
+			state: 0
+		}
+		$scope.lists[$scope.cu].todos.push(i);
+	}
+
+	$scope.pd = function(index) {
+		var b = $scope.lists[$scope.cu].todos[index];
+		console.log(b);
+		if(b.state === 1) {
+			b.state = 0;
+		} else {
+			b.state = 1;
+		}
 	}
 
 }]);
@@ -151,35 +202,39 @@ app.directive("ngXk", function() {
 		}
 	}
 });
+
 /*边框及背景*/
-app.directive("completeList",function(){
+app.directive("completeList", function() {
 	return {
-		restrict:"A",
-		transclude:true,
-		replace:true,
+		restrict: "A",
+		transclude: true,
+		replace: true,
 		template: '<div class="complete-list"><div ng-transclude></div></div>',
-		link:function($scope,el){
-			$(".com-list-inner").on("click",function(){
-				$(this).addClass(".active");
+		link: function($scope, el) {
+			$(".com-list-inner").on("click", function() {
+				//				console.log($(this));
+				$(this).addClass("active").siblings("li").removeClass("active");
 				return false;
 			});
+
 		}
 	}
 });
+/*边框及背景   End*/
 
 /*删除	取消     完成*/
-app.directive("xkButton",function(){
+app.directive("xkButton", function() {
 	return {
-		restrict:"A",
-		transclude:true,
-		replace:true,
+		restrict: "A",
+		transclude: true,
+		replace: true,
 		template: '<div class="xk-button"><div ng-transclude></div></div>',
-		link:function($scope,el){
-			$(el).on("click",".cancel",function(){
+		link: function($scope, el) {
+			$(el).on("click", ".cancel", function() {
 				$(".right-xk").fadeOut();
 				return false;
 			});
-			$(el).on("click",".finish",function(){
+			$(el).on("click", ".finish", function() {
 				$(".right-xk").fadeOut();
 				return false;
 			});
@@ -190,19 +245,26 @@ app.directive("xkButton",function(){
 /*完成事项*/
 $(".complete-list").hide();
 $(".complete .clear").hide();
-app.directive("finish",function(){
+app.directive("finish", function() {
 	return {
-		restrict:"A",
-		transclude:true,
-		replace:true,
-		template:'<div class="finish"><div ng-transclude></div></div>',
-		link:function($scope,el){
-//			console.log($("el .complete"));
-			$(".btn").on("click",function(){
+		restrict: "A",
+		transclude: true,
+		replace: true,
+		template: '<div class="finish"><div ng-transclude></div></div>',
+		link: function($scope, el) {
+			$(".btn").on("click", function() {
 				$(this).toggleClass("active");
-//				console.log($("complete-list"));
+				//				console.log($("complete-list"));
 				$(".complete-list").fadeToggle();
 				$(".complete .clear").fadeToggle();
+				return false;
+			});
+			$("#new").on("click", function() {
+				$(this).addClass("active");
+				return false;
+			});
+			$(".complete").on("click", ".clear", function() {
+				$("#clear").addClass("active");
 				return false;
 			});
 		}
@@ -211,22 +273,104 @@ app.directive("finish",function(){
 
 /*建立新项目左侧图标*/
 $("#new").hide();
-app.directive("project",function(){
+app.directive("project", function() {
 	return {
-		restrict:"A",
-		transclude:true,
-		replace:true,
-		template:'<div class="project"><div ng-transclude></div></div>',
-		link:function($scope,el){
-			$(el).on("click",".pro-title",function(){
-				$("#new").fadeToggle();
+		restrict: "A",
+		transclude: true,
+		replace: true,
+		template: '<div class="project"><div ng-transclude></div></div>',
+		link: function($scope, el) {
+			$(el).on("click", ".pro-title", function() {
+				$("#new").fadeToggle().addClass("active");
 				return false;
 			});
-//			$(document).on('click',function(){
-//				$("#new").fadeOut();
-//				return false;
-//			});
+			//			$(document).on('click',function(){
+			//				$("#new").fadeOut();
+			//				return false;
+			//			});
+
 		}
 	}
 });
 
+/*clear*/
+app.directive("bttn", function() {
+	return {
+		restrict: "A",
+		transclude: true,
+		replace: true,
+		template: '<div class="bttn"><div ng-transclude></div></div>',
+		link: function($scope, el) {
+			$(".qx").on("click", "a", function() {
+				$("#clear").removeClass("active");
+				return false;
+			});
+			$(".qc").on("click", "a", function() {
+				$("#clear").removeClass("active");
+				return false;
+			});
+		}
+	}
+});
+
+//增加
+app.directive('zJ', function() {
+	return {
+		restrict: 'A',
+		transclude: true,
+		replace: true,
+		template: '<div><div ng-transclude></div></div>',
+		link: function($scope, el) {
+			var zj = 0;
+			$(el).on("click", function() {
+				for(var i = 0; i < zj.lenght; i++) {
+					$("document").removeClass("newx");
+					return false;
+				}
+			});
+		}
+	}
+});
+
+app.directive('ngsc', function() {
+	return {
+		restrict: 'A',
+		transclude: true,
+		replace: true,
+		template: '<div class="ngsc"><div ng-transclude></div></div>',
+		link: function($scope, el) {
+			alert(1)
+//			$(".xyincang input").on("click", function() {
+//				$(".xyincang").addClass("bomm")
+//				return false;
+//			})
+//			return false;
+//
+//			$(document).on("click", function() {
+//				$(".xyincang").removeClass("bomm")
+//
+//			})
+		}
+	}
+});
+
+//删除
+
+//app.directive('nJ', function() {
+//	return {
+//		restrict: 'A',
+//		transclude: true,
+//		replace: true,
+//		template: '<div><div ng-transclude></div></div>',
+//		link: function($scope, el) {
+//			$(el).on("click", function() {
+//				$(".field").toggle()
+//				return false;
+//			})
+//			$(".field").on("click", false)
+//			$(document).on("click", function() {
+//				$(".field").hide()
+//			})
+//		}
+//	}
+//})
