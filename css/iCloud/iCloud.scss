@@ -351,6 +351,7 @@
         }
     }
 }
+/*right-center-view*/
 .right-center-view {
     @include position(0px,69px,0px,0px);
     @include whb(977px,567,transparent);
@@ -479,70 +480,80 @@
         }
         .color-img {
             @include whb(316px,33px,transparent);
-            margin-left:-10px;
+            margin-left: -10px;
             li {
                 float: left;
                 height: 33px;
                 width: 33px;
                 margin-left: 10px;
                 div {
-                    @include img-icon(25px,25px,4px,4px);
-                    background-image: url("../images/stylesheet-1.png");
-                    background-repeat: no-repeat;
+                    @include img-icon(25px,25px,4px,4px); //                  background-image: url("../images/stylesheet-1.png");
+                    //background-repeat: no-repeat;
                 }
             }
             li.first div {
-                margin-left: 0;
-                background-position: 0 -231px;
-            }
-            li:nth-child(2) div {
-                background-position: 0 -256px;
-            }
-            li:nth-child(3) div {
-                background-position: 0 -281px;
-            }
-            li:nth-child(4) div {
-                background-position: 0 -306px;
-            }
-            li:nth-child(5) div {
-                background-position: 0 -331px;
-            }
-            li:nth-child(6) div {
-                background-position: 0 -356px;
-            }
-            li:nth-child(7) div {
-                background-position: 0 -381px;
+                margin-left: 0; //background-position: 0 -231px;
             }
         }
     }
 }
 /*利用 list和map循环来写样式*/
-$color-list: purple,green,blue,yellow,blrown,red,orange;
+$colors-list: purple,green,blue,yellow,blrown,red,orange;
 $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 0px -281px, "yellow":#F3CB00 0px -306px, "blrown":#A0855E 0px -331px, "red":#F62368 0px -356px, "orange":#F99600 0px -381px );
 @each $v in map_keys($Map) {
     $l: map_get($Map,$v);
-    .img div.#{$v} {
-        background-image: url("../images/stylesheet-1.png");
+    .imgs .img-icon.#{$v} {
+        background: url("../images/stylesheet-1.png");
         background-position: nth($l,2) nth($l,3);
+        background-repeat: no-repeat;
     }
 }
 /*利用 list和map循环来写样式  End*/
+@mixin row-top {
+    @include left-right(30px,0px,0px);
+    height: 2px;
+    background-image: url("../images/packed-3.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    z-index: 5;
+}
+@mixin row-bottom {
+    position: absolute;
+    right: 0;
+    left: 30px;
+    height: 2px;
+    background-image: url("../images/packed-3.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    z-index: 5;
+}
 .right-inner {
     @include position(0px,56px,0px,0px);
     .row-top {
-        @include left-right(30px,0px,0px);
-        height: 2px;
-        background-image: url("../images/packed-3.png");
-        background-position: 0 0;
-        background-repeat: repeat;
-        z-index: 5;
+        @include row-top;
     }
     .finish {
+        height: auto;
         @include position(0px,0px,0px,0px);
     }
     .complete {
         @include left-right(30px,0px,0px);
         height: 52px;
+        .btn {
+            position: absolute;
+            cursor: pointer;
+            left: 11px;
+            top: 16px;
+            margin: 0;
+            width: 23px;
+            height: 23px;
+            background-image: url("../images/packed-5.png");
+            background-position: -96px -497px;
+            background-repeat: no-repeat;
+            &.active {
+                background-position: -23px -526px;
+            }
+        }
         .container {
             position: absolute;
             top: 16px;
@@ -555,23 +566,167 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
             font-size: 19px;
             cursor: default;
         }
+        /*清除所有事项*/
+        .clear {
+            position: absolute;
+            right: 35px;
+            top: 16px;
+            font-size: 19px;
+            color: #999;
+            cursor: pointer;
+        }
     }
+    /*完成事项列表*/
+    .complete-list {
+        @include whb(100%,auto,transparent);
+        margin-top: 52px;
+        overflow: auto;
+        &:after {
+            @include clearfix;
+        }
+        .com-list-title {
+            @include whb(100%,42px,transparent);
+            z-index: 1;
+            .row-top {
+                @include row-top;
+                top: 52px;
+            }
+            .title {
+                height: 42px;
+                line-height: 42px;
+                margin-left: 30px;
+                white-space: nowrap;
+                letter-spacing: 1px;
+            }
+            .row-bottom {
+                @include row-bottom;
+                left: 30px;
+                height: 1px;
+            }
+        }
+        .com-list-inner {
+            @include whb(100%,52px,transparent);
+            padding-left: 83px;
+            z-index: 333;
+            position: relative;
+            .active {
+                @include whb(100%,52px,#E4F0E0);
+                border-top: 1px solid #49BF1F;
+                border-bottom: 1px solid #49BF1F;
+                z-index: 333;
+            }
+            input.list-inner {
+                display: block;
+                float: left;
+                padding-left: 15px;
+                height: 50px;
+                margin-top: 1px;
+                width: 777px;
+                outline: none;
+                font-size: 20px;
+                border: none;
+                background: none;
+            }
+            &:hover {
+                background: #E4F0E0;
+                border-top: 1px solid #49BF1F;
+                border-bottom: 1px solid #49BF1F;
+                z-index: 333;
+            }
+            &:hover .com-list-title .row-bottom {
+                display: none;
+            }
+            a.button {
+                display: block;
+                position: absolute;
+                left: 36px;
+                height: 32px;
+                width: 32px;
+                margin-top: 8px;
+                cursor: pointer;
+                border: transparent !important;
+                .checked {
+                    background-image: url("../images/packed-5.png");
+                    background-position: -128px -401px;
+                    background-repeat: no-repeat;
+                    height: 32px;
+                    width: 32px;
+                    margin: 0;
+                    border: none;
+                }
+            }
+            .x-info {
+                display: block;
+                float: left;
+                line-height: 52px;
+                white-space: 2px;
+                white-space: nowrap;
+                letter-spacing: 2px;
+                font-size: 20px;
+            }
+            .inner-row-bottom {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 83px;
+                width: 91.5%;
+                height: 1px;
+                background-image: url("../images/packed-3.png");
+                background-position: 0 0;
+                background-repeat: repeat;
+                z-index: 5;
+            }
+            .inner-row-bottom2 {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 30px;
+                width: 96.5%;
+                height: 1px;
+                background-image: url("../images/packed-3.png");
+                background-position: 0 0;
+                background-repeat: repeat;
+                z-index: 5;
+            }
+        }
+    }
+    /*建立新项目左侧图标*/
+    #new {
+        @include whb(100%,52px,transparent);
+        margin-top: 52px;
+        border-top: 1px solid #6EDC32;
+        border-bottom: 1px solid #6EDC32;
+        position: relative;
+        &:after {
+            @include clearfix;
+        }
+        .new-img {}
+        input.new {
+            width: 888px;
+            height: 50px;
+            margin-top: 0;
+            border: none;
+            margin-left: 81px;
+            padding-left: 15px;
+            outline: none;
+            font-size: 20px;
+            background:transparent;
+        }
+    }
+    /*新项目*/
     .project {
-        @include left-right(0px,0px,52px);
+        position: absolute;
+        left: 0;
+        right: 0;
         height: 52px;
+        margin-top: 2px;
         .row-top {
             left: 81px;
         }
         .row-bottom {
-            position: absolute;
-            right: 0;
-            bottom: 0;
+            @include row-bottom;
             left: 81px;
-            height: 2px;
-            background-image: url("../images/packed-3.png");
-            background-position: 0 0;
-            background-repeat: repeat;
-            z-index: 5;
+            bottom: 0;
         }
         .pro-title {
             position: absolute;
@@ -579,21 +734,43 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
             left: 81px;
             color: #999;
             font-size: 19px;
+            cursor: pointer;
         }
     }
 }
 /*right-main-view End*/
 /*list map 循环*/
+/*建立新项目左侧图标*/
 $color-list: purple,green,blue,yellow,blrown,red,orange;
-$map1: ( "red":#f72469 10px 10px, "yellow":#f3cb00 20px 20px, "blue":#40acf9 10px 30px, "green":#fff 22px 33px );
-@each $v in map_keys($map1) {
-    $l: map_get($map1,$v);
-    .images .#{$v} {
-        color: nth($l,1);
-        background-image: url("aa.png");
+$map2: ( "purple":#C970E3 -64px -401px, "green":#6EDC32 -74px -359px, "blue":#40ABF8 0px -433px, "yellow":#F3CB00 -32px -465px, "blrown":#A0855E -32px -433px, "red":#F62368 -96px -433px, "orange":#F99600 -136px -235px );
+@each $v in map_keys($map2) {
+    $l: map_get($map2,$v);
+    #new .new-img.#{$v} {
+        background: url("../images/packed-5.png");
         background-position: nth($l,2) nth($l,3);
+        background-repeat: no-repeat;
+        height: 32px;
+        width: 32px;
+        margin: 0;
+        border: none;
+        position: absolute;
+        left: 36px;
+        top: 8px;
     }
 }
+/*右侧列表循环*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map1: ( "purple":#C970E3 -34px -571px, "green":#6EDC32 -0px -571px, "blue":#40ABF8 -51px -571px, "yellow":#F3CB00 -85px -571px, "blrown":#A0855E -133px -549px, "red":#F62368 -68px -571px, "orange":#F99600 -102px -571px );
+@each $v in map_keys($map1) {
+    $l: map_get($map1,$v);
+    .right-center-view .title.#{$v} {
+        color: nth($l,1);
+    }
+    .right-xk .xk-info .lb.#{$v} {
+        color: nth($l,1);
+    }
+}
+/*左侧列表循环*/
 $color-list: purple,green,blue,yellow,blrown,red,orange;
 $map: ( "purple":#C970E3 -34px -571px, "green":#6EDC32 -0px -571px, "blue":#40ABF8 -51px -571px, "yellow":#F3CB00 -85px -571px, "blrown":#A0855E -133px -549px, "red":#F62368 -68px -571px, "orange":#F99600 -102px -571px );
 @each $v in map_keys($map) {

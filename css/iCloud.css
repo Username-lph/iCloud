@@ -470,6 +470,7 @@ body {
   background-position: -137px -526px;
 }
 
+/*right-center-view*/
 .right-center-view {
   position: absolute;
   left: 0px;
@@ -663,73 +664,53 @@ body {
   height: 25px;
   margin-left: 4px;
   margin-top: 4px;
-  background-image: url("../images/stylesheet-1.png");
-  background-repeat: no-repeat;
 }
 
 .right-title .color .color-img li.first div {
   margin-left: 0;
-  background-position: 0 -231px;
-}
-
-.right-title .color .color-img li:nth-child(2) div {
-  background-position: 0 -256px;
-}
-
-.right-title .color .color-img li:nth-child(3) div {
-  background-position: 0 -281px;
-}
-
-.right-title .color .color-img li:nth-child(4) div {
-  background-position: 0 -306px;
-}
-
-.right-title .color .color-img li:nth-child(5) div {
-  background-position: 0 -331px;
-}
-
-.right-title .color .color-img li:nth-child(6) div {
-  background-position: 0 -356px;
-}
-
-.right-title .color .color-img li:nth-child(7) div {
-  background-position: 0 -381px;
 }
 
 /*利用 list和map循环来写样式*/
-.img div.purple {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.purple {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -231px;
+  background-repeat: no-repeat;
 }
 
-.img div.green {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.green {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -256px;
+  background-repeat: no-repeat;
 }
 
-.img div.blue {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.blue {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -281px;
+  background-repeat: no-repeat;
 }
 
-.img div.yellow {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.yellow {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -306px;
+  background-repeat: no-repeat;
 }
 
-.img div.blrown {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.blrown {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -331px;
+  background-repeat: no-repeat;
 }
 
-.img div.red {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.red {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -356px;
+  background-repeat: no-repeat;
 }
 
-.img div.orange {
-  background-image: url("../images/stylesheet-1.png");
+.imgs .img-icon.orange {
+  background: url("../images/stylesheet-1.png");
   background-position: 0px -381px;
+  background-repeat: no-repeat;
 }
 
 /*利用 list和map循环来写样式  End*/
@@ -739,6 +720,9 @@ body {
   top: 56px;
   right: 0px;
   bottom: 0px;
+  /*完成事项列表*/
+  /*建立新项目左侧图标*/
+  /*新项目*/
 }
 
 .right-inner .row-top {
@@ -754,6 +738,7 @@ body {
 }
 
 .right-inner .finish {
+  height: auto;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -767,6 +752,24 @@ body {
   right: 0px;
   top: 0px;
   height: 52px;
+  /*清除所有事项*/
+}
+
+.right-inner .complete .btn {
+  position: absolute;
+  cursor: pointer;
+  left: 11px;
+  top: 16px;
+  margin: 0;
+  width: 23px;
+  height: 23px;
+  background-image: url("../images/packed-5.png");
+  background-position: -96px -497px;
+  background-repeat: no-repeat;
+}
+
+.right-inner .complete .btn.active {
+  background-position: -23px -526px;
 }
 
 .right-inner .complete .container {
@@ -782,12 +785,203 @@ body {
   cursor: default;
 }
 
+.right-inner .complete .clear {
+  position: absolute;
+  right: 35px;
+  top: 16px;
+  font-size: 19px;
+  color: #999;
+  cursor: pointer;
+}
+
+.right-inner .complete-list {
+  width: 100%;
+  height: auto;
+  background: transparent;
+  margin-top: 52px;
+  overflow: auto;
+}
+
+.right-inner .complete-list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.right-inner .complete-list .com-list-title {
+  width: 100%;
+  height: 42px;
+  background: transparent;
+  z-index: 1;
+}
+
+.right-inner .complete-list .com-list-title .row-top {
+  position: absolute;
+  left: 30px;
+  right: 0px;
+  top: 0px;
+  height: 2px;
+  background-image: url("../images/packed-3.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 5;
+  top: 52px;
+}
+
+.right-inner .complete-list .com-list-title .title {
+  height: 42px;
+  line-height: 42px;
+  margin-left: 30px;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.right-inner .complete-list .com-list-title .row-bottom {
+  position: absolute;
+  right: 0;
+  left: 30px;
+  height: 2px;
+  background-image: url("../images/packed-3.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 5;
+  left: 30px;
+  height: 1px;
+}
+
+.right-inner .complete-list .com-list-inner {
+  width: 100%;
+  height: 52px;
+  background: transparent;
+  padding-left: 83px;
+  z-index: 333;
+  position: relative;
+}
+
+.right-inner .complete-list .com-list-inner .active {
+  width: 100%;
+  height: 52px;
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.right-inner .complete-list .com-list-inner input.list-inner {
+  display: block;
+  float: left;
+  padding-left: 15px;
+  height: 50px;
+  margin-top: 1px;
+  width: 777px;
+  outline: none;
+  font-size: 20px;
+  border: none;
+  background: none;
+}
+
+.right-inner .complete-list .com-list-inner:hover {
+  background: #E4F0E0;
+  border-top: 1px solid #49BF1F;
+  border-bottom: 1px solid #49BF1F;
+  z-index: 333;
+}
+
+.right-inner .complete-list .com-list-inner:hover .com-list-title .row-bottom {
+  display: none;
+}
+
+.right-inner .complete-list .com-list-inner a.button {
+  display: block;
+  position: absolute;
+  left: 36px;
+  height: 32px;
+  width: 32px;
+  margin-top: 8px;
+  cursor: pointer;
+  border: transparent !important;
+}
+
+.right-inner .complete-list .com-list-inner a.button .checked {
+  background-image: url("../images/packed-5.png");
+  background-position: -128px -401px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+}
+
+.right-inner .complete-list .com-list-inner .x-info {
+  display: block;
+  float: left;
+  line-height: 52px;
+  white-space: 2px;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.right-inner .complete-list .com-list-inner .inner-row-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 83px;
+  width: 91.5%;
+  height: 1px;
+  background-image: url("../images/packed-3.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 5;
+}
+
+.right-inner .complete-list .com-list-inner .inner-row-bottom2 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 30px;
+  width: 96.5%;
+  height: 1px;
+  background-image: url("../images/packed-3.png");
+  background-position: 0 0;
+  background-repeat: repeat;
+  z-index: 5;
+}
+
+.right-inner #new {
+  width: 100%;
+  height: 52px;
+  background: transparent;
+  margin-top: 52px;
+  border-top: 1px solid #6EDC32;
+  border-bottom: 1px solid #6EDC32;
+  position: relative;
+}
+
+.right-inner #new:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.right-inner #new input.new {
+  width: 888px;
+  height: 50px;
+  margin-top: 0;
+  border: none;
+  margin-left: 81px;
+  padding-left: 15px;
+  outline: none;
+  font-size: 20px;
+  background: transparent;
+}
+
 .right-inner .project {
   position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 52px;
+  left: 0;
+  right: 0;
   height: 52px;
+  margin-top: 2px;
 }
 
 .right-inner .project .row-top {
@@ -797,13 +991,14 @@ body {
 .right-inner .project .row-bottom {
   position: absolute;
   right: 0;
-  bottom: 0;
-  left: 81px;
+  left: 30px;
   height: 2px;
   background-image: url("../images/packed-3.png");
   background-position: 0 0;
   background-repeat: repeat;
   z-index: 5;
+  left: 81px;
+  bottom: 0;
 }
 
 .right-inner .project .pro-title {
@@ -812,34 +1007,161 @@ body {
   left: 81px;
   color: #999;
   font-size: 19px;
+  cursor: pointer;
 }
 
 /*right-main-view End*/
 /*list map 循环*/
-.images .red {
-  color: #f72469;
-  background-image: url("aa.png");
-  background-position: 10px 10px;
+/*建立新项目左侧图标*/
+#new .new-img.purple {
+  background: url("../images/packed-5.png");
+  background-position: -64px -401px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
 }
 
-.images .yellow {
-  color: #f3cb00;
-  background-image: url("aa.png");
-  background-position: 20px 20px;
+#new .new-img.green {
+  background: url("../images/packed-5.png");
+  background-position: -74px -359px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
 }
 
-.images .blue {
-  color: #40acf9;
-  background-image: url("aa.png");
-  background-position: 10px 30px;
+#new .new-img.blue {
+  background: url("../images/packed-5.png");
+  background-position: 0px -433px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
 }
 
-.images .green {
-  color: #fff;
-  background-image: url("aa.png");
-  background-position: 22px 33px;
+#new .new-img.yellow {
+  background: url("../images/packed-5.png");
+  background-position: -32px -465px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
 }
 
+#new .new-img.blrown {
+  background: url("../images/packed-5.png");
+  background-position: -32px -433px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
+}
+
+#new .new-img.red {
+  background: url("../images/packed-5.png");
+  background-position: -96px -433px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
+}
+
+#new .new-img.orange {
+  background: url("../images/packed-5.png");
+  background-position: -136px -235px;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  border: none;
+  position: absolute;
+  left: 36px;
+  top: 8px;
+}
+
+/*右侧列表循环*/
+.right-center-view .title.purple {
+  color: #C970E3;
+}
+
+.right-xk .xk-info .lb.purple {
+  color: #C970E3;
+}
+
+.right-center-view .title.green {
+  color: #6EDC32;
+}
+
+.right-xk .xk-info .lb.green {
+  color: #6EDC32;
+}
+
+.right-center-view .title.blue {
+  color: #40ABF8;
+}
+
+.right-xk .xk-info .lb.blue {
+  color: #40ABF8;
+}
+
+.right-center-view .title.yellow {
+  color: #F3CB00;
+}
+
+.right-xk .xk-info .lb.yellow {
+  color: #F3CB00;
+}
+
+.right-center-view .title.blrown {
+  color: #A0855E;
+}
+
+.right-xk .xk-info .lb.blrown {
+  color: #A0855E;
+}
+
+.right-center-view .title.red {
+  color: #F62368;
+}
+
+.right-xk .xk-info .lb.red {
+  color: #F62368;
+}
+
+.right-center-view .title.orange {
+  color: #F99600;
+}
+
+.right-xk .xk-info .lb.orange {
+  color: #F99600;
+}
+
+/*左侧列表循环*/
 .sc-outline .icon.purple {
   background-image: url("../images/packed-5.png");
   background-position: -34px -571px;

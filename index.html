@@ -38,11 +38,11 @@
 
 				<!--<ul class="collection-bottom" id="lists">-->
 				<div my-ul>
-					<li class="sc-outline" ng-repeat="v in lists track by $index">
+					<li class="sc-outline" ng-repeat="v in lists track by $index" ng-click="lists[cu].name;save2local()" ng-click="addList();save2local()">
 						<!--<ul class="collection-color-icon">-->
 						<div class="icon {{v.theme}}"></div>
 						<div class="title"></div>
-						<input type="text" ng-model="v.name" ng-keyup="save2local()" />
+						<input type="text" ng-model="v.name" ng-keyup="save2local()"/>
 						<!--<input type="text" ng-model="v.name" ng-keyup="save2local()" />-->
 						<div class="share"></div>
 						<!--</ul>-->
@@ -76,41 +76,42 @@
 			<div class="right-center-view">
 				<div class="right-cetner">
 					<div class="right-title">
-						<div class="title">{{lists[cu].name}}</div>
+						<div class="title {{lists[cu].theme}}">{{lists[cu].name}}</div>
+						<!--右侧选项点击-->
 						<div ng-xk>
 							<label for="">选项</label>
 							<ul class="right-xk">
 								<li class="xk-info">
 									<div class="xk-img">
 										<div class="input">
-											<input type="text" ng-model="lists[cu].name" ng-keyup="save2local()"/>
+											<input type="text" class="lb {{lists[cu].theme}}" ng-model="lists[cu].name" ng-keyup="lists[cu].theme;save2local()" />
 										</div>
 										<div class="color">
 											<div class="tle">
 												列表颜色
 											</div>
-											<ul class="color-img" id="color">
-												<li class="img first">
+											<ul class="color-img" id="theme">
+												<li class="imgs first" ng-repeat="v in theme track by $index" ng-click="lists[cu].theme=v.color;save2local()">
+													<div class="img-icon {{v.color}} {{lists[cu].theme===v.color?v.color:''}}"></div>
+												</li>
+												<!--<li class="imgs">
 													<div class="img-icon"></div>
 												</li>
-												<li class="img">
+												<li class="imgs">
 													<div class="img-icon"></div>
 												</li>
-												<li class="img">
+												<li class="imgs">
 													<div class="img-icon"></div>
 												</li>
-												<li class="img">
+												<li class="imgs">
 													<div class="img-icon"></div>
 												</li>
-												<li class="img">
+												<li class="imgs">
 													<div class="img-icon"></div>
 												</li>
-												<li class="img">
+												<li class="imgs">
 													<div class="img-icon"></div>
-												</li>
-												<li class="img">
-													<div class="img-icon"></div>
-												</li>
+												</li>-->
 											</ul>
 										</div>
 									</div>
@@ -122,14 +123,49 @@
 								</li>
 							</ul>
 						</div>
+						<!--右侧选项点击  End-->
 					</div>
 					<div class="right-inner">
 						<div class="row-top"></div>
-						<div class="finish">
+						<div finish class="">
 							<div class="complete">
+								<div class="btn"></div>
 								<div class="container">已完成：0 项</div>
+								<div class="clear">清除已完成事项</div>
 							</div>
-							<div class="project">
+							<ul class="complete-list">
+								<li class="com-list-title">
+									<div class="row-top"></div>
+									<div class="title">2016年11月18日
+										<span>星期五</span>
+									</div>
+									<!--<input type="date" />-->
+									<div class="row-bottom"></div>
+								</li>
+								<li class="com-list-inner">
+									<input type="text" class="list-inner"/>
+									<a href="javascript:;" class="button">
+										<div class="checked"></div>
+									</a>
+									<span class="x-info">详细信息</span>
+									<div class="inner-row-bottom"></div>
+									<!--<div class="inner-row-bottom2"></div>-->
+								</li>
+								<li class="com-list-inner">
+									<input type="text" class="list-inner"/>
+									<a href="javascript:;" class="button">
+										<div class="checked"></div>
+									</a>
+									<span class="x-info">详细信息</span>
+									<!--<div class="inner-row-bottom"></div>-->
+									<div class="inner-row-bottom2"></div>
+								</li>
+							</ul>
+							<div id="new">
+								<div class="new-img {{lists[cu].theme}}"></div>
+								<input type="text" class="new"/>
+							</div>
+							<div project class="">
 								<div class="row-top"></div>
 								<div class="row-bottom"></div>
 								<div class="pro-title">新项目...</div>
