@@ -732,16 +732,16 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
 /*clear清除选项*/
 #clear {
     @include whb(450px,170px,#fff);
-    transition:transform 0.06s ease-in-out 0s;
-    transform:scale(0,0);
+    transition: transform 0.06s ease-in-out 0s;
+    transform: scale(0,0);
     padding-top: 10px;
     padding-bottom: 10px;
     @include center;
     border-radius: 15px;
     z-index: 999;
-    box-shadow:0px 0px 0px 1000px rgba(0,0,0,.39);
-    &.active{
-        transform:scale(1,1);
+    box-shadow: 0 0 0 1000px rgba(0,0,0,.39);
+    &.active {
+        transform: scale(1,1);
     }
     .clear-img {
         position: absolute;
@@ -807,7 +807,7 @@ $Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 
             margin-left: 26px;
             a {
                 color: #167EFB;
-                font-weight:600;
+                font-weight: 600;
             }
         }
     }
@@ -840,7 +840,7 @@ $map5: ( "purple":#C970E3 #F6ECF9, "green":#6EDC32 #E5F1E1, "blue":#40ABF8 #E0EF
         border-bottom: 1px solid nth($l,1);
         z-index: 333;
     }
-    .newx.active.#{$v} {
+    #new.active.#{$v} {
         background: nth($l,2);
         border-top: 1px solid nth($l,1);
         border-bottom: 1px solid nth($l,1);

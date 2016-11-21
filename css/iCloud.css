@@ -1013,7 +1013,7 @@ body {
   margin: auto;
   border-radius: 15px;
   z-index: 999;
-  box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.39);
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.39);
 }
 
 #clear.active {
@@ -1190,7 +1190,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.purple {
+#new.active.purple {
   background: #F6ECF9;
   border-top: 1px solid #C970E3;
   border-bottom: 1px solid #C970E3;
@@ -1204,7 +1204,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.green {
+#new.active.green {
   background: #E5F1E1;
   border-top: 1px solid #6EDC32;
   border-bottom: 1px solid #6EDC32;
@@ -1218,7 +1218,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.blue {
+#new.active.blue {
   background: #E0EFF7;
   border-top: 1px solid #40ABF8;
   border-bottom: 1px solid #40ABF8;
@@ -1232,7 +1232,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.yellow {
+#new.active.yellow {
   background: #F5F0DF;
   border-top: 1px solid #F3CB00;
   border-bottom: 1px solid #F3CB00;
@@ -1246,7 +1246,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.blrown {
+#new.active.blrown {
   background: #EEEBE7;
   border-top: 1px solid #A0855E;
   border-bottom: 1px solid #A0855E;
@@ -1260,7 +1260,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.red {
+#new.active.red {
   background: #FAE5EB;
   border-top: 1px solid #F62368;
   border-bottom: 1px solid #F62368;
@@ -1274,7 +1274,7 @@ body {
   z-index: 333;
 }
 
-.newx.active.orange {
+#new.active.orange {
   background: #F1E4D8;
   border-top: 1px solid #F99600;
   border-bottom: 1px solid #F99600;

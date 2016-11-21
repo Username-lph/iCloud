@@ -46,14 +46,14 @@ app.controller("mainCloud", ["$scope", function($scope) {
 			{
 				id: 103,
 				name: "购物列表",
-				theme: "blue",
+				theme: "purple",
 				todos: [{
 					name: "面食",
 					state: 1
 				}, {
 					name: "大米",
 					state: 0
-				} ]
+				}]
 			}
 		];
 	}
@@ -79,6 +79,22 @@ app.controller("mainCloud", ["$scope", function($scope) {
 		$scope.lists.splice($scope.cu, 1);
 	}
 
+	/*搜索所有提醒*/
+	$(".search").find("input").on("focus", function() {
+		$(this).css({
+			"background": "#fff",
+			"borderRight": "1px solid rgba(128, 128, 128, 0.35)"
+		})
+
+	})
+
+	$(".search").find("input").on("blur", function() {
+		$(this).css({
+			"background": "transparent",
+			"borderRight": 0
+		})
+	})
+	
 	/*统计已完成项目*/
 	$scope.count = function() {
 		var r = 0;
@@ -86,7 +102,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 			if(v.state == 1) {
 				r++;
 			}
-		});
+		})
 		return r;
 	}
 
@@ -101,7 +117,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 		$scope.lists[$scope.cu].todos = newarr;
 	}
 
-	/*统计已完成项目*/
+	/*maxId*/
 	function maxId() {
 		var max = -Infinity;
 		for(var i = 0; i < $scope.lists.length; i++) {
@@ -112,6 +128,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 		}
 		return(max === -Infinity) ? 100 : max;
 	}
+
 	/*添加点击增加列表项*/
 	$scope.addList = function() {
 		var len = $scope.lists.length;
@@ -120,8 +137,8 @@ app.controller("mainCloud", ["$scope", function($scope) {
 			//id:1005,
 			id: maxId() + 1,
 			name: "新列表" + (len + 1),
-			theme: colors[index]
-				//			todos:[];
+			theme: colors[index],
+			todos: []
 		};
 		$scope.lists.push(v);
 	}
@@ -136,7 +153,7 @@ app.controller("mainCloud", ["$scope", function($scope) {
 
 	$scope.pd = function(index) {
 		var b = $scope.lists[$scope.cu].todos[index];
-		console.log(b);
+//		console.log(b);
 		if(b.state === 1) {
 			b.state = 0;
 		} else {
@@ -156,10 +173,10 @@ app.directive("myUl", [function() {
 		link: function($scope, el) {
 			//事件流，阻止冒泡
 			$(el).on("keyup", false);
-			//			$(document).on("keyup",":input",false);
-			//			$(el).on("keyup", "input", function() {
-			//				return false;
-			//			});
+//			$(document).on("keyup",":input",false);
+//			$(el).on("keyup", "input", function() {
+//				return false;
+//			});
 			$(el).on("click", "li", function() {
 				$(el).find("li").removeClass("active");
 				$(this).addClass("active");
@@ -199,6 +216,7 @@ app.directive("ngXk", function() {
 			$(document).on("click", function() {
 				$(".right-xk").hide();
 			});
+			
 		}
 	}
 });
@@ -211,8 +229,8 @@ app.directive("completeList", function() {
 		replace: true,
 		template: '<div class="complete-list"><div ng-transclude></div></div>',
 		link: function($scope, el) {
-			$(".com-list-inner").on("click", function() {
-				//				console.log($(this));
+			$(".com-list").on("click", function() {
+				console.log($(this));
 				$(this).addClass("active").siblings("li").removeClass("active");
 				return false;
 			});
@@ -263,10 +281,12 @@ app.directive("finish", function() {
 				$(this).addClass("active");
 				return false;
 			});
+			
 			$(".complete").on("click", ".clear", function() {
 				$("#clear").addClass("active");
 				return false;
 			});
+			
 		}
 	}
 });
@@ -281,13 +301,13 @@ app.directive("project", function() {
 		template: '<div class="project"><div ng-transclude></div></div>',
 		link: function($scope, el) {
 			$(el).on("click", ".pro-title", function() {
-				$("#new").fadeToggle().addClass("active");
+				$("#new").fadeToggle().toggleClass("active");
 				return false;
 			});
-			//			$(document).on('click',function(){
-			//				$("#new").fadeOut();
-			//				return false;
-			//			});
+//			$(document).on('click',function(){
+//				$("#new").fadeOut();
+//				return false;
+//			});
 
 		}
 	}
@@ -339,7 +359,9 @@ app.directive('ngsc', function() {
 		replace: true,
 		template: '<div class="ngsc"><div ng-transclude></div></div>',
 		link: function($scope, el) {
-			alert(1)
+			$(".new-img").on("click",function(){
+				
+			});
 //			$(".xyincang input").on("click", function() {
 //				$(".xyincang").addClass("bomm")
 //				return false;
